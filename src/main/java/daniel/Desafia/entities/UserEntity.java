@@ -17,6 +17,7 @@ public class UserEntity {
 
     private String username;
     private String email;
+    private String mailToken;
     private String password;
 
     private String avatarUrl;
@@ -28,6 +29,11 @@ public class UserEntity {
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    private boolean isExpired(LocalDateTime actualTime) {
+        LocalDateTime expiredTime = this.createdAt.plusMinutes(30);
+        return actualTime.isBefore(expiredTime);
+    }
 
     public String getUsername() {
         return username;
@@ -107,5 +113,13 @@ public class UserEntity {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getMailToken() {
+        return mailToken;
+    }
+
+    public void setMailToken(String mailToken) {
+        this.mailToken = mailToken;
     }
 }
