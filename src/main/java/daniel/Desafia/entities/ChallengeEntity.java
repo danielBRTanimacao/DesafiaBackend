@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "challenges")
 public class ChallengeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

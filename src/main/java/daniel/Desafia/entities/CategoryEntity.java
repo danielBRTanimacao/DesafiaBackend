@@ -9,12 +9,15 @@ import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "categories")
 public class CategoryEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
+    @Lob
+    @Column(columnDefinition = "BLOB")
     private byte[] icon;
 
     @CreatedDate
@@ -24,8 +27,9 @@ public class CategoryEntity {
 
     public CategoryEntity() {}
 
-    public CategoryEntity(String name, byte[] icon, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public CategoryEntity(String name, byte[] icon) {
         this.name = name;
+        this.icon = icon;
     }
 
     public Long getId() {
@@ -48,8 +52,8 @@ public class CategoryEntity {
         return icon;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon.getBytes();
+    public void setIcon(byte[] icon) {
+        this.icon = icon;
     }
 
     public LocalDateTime getCreatedAt() {
