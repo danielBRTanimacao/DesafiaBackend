@@ -14,17 +14,28 @@ import java.time.LocalDateTime;
 @Table(name = "challenges")
 public class ChallengeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
+    @Column(nullable = false, length = 150)
     private String title;
+    @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private DifficultyEnum difficulty;
 
     private int xpReward;
 
-    private String imgUrl;
+    private byte[] imgUrl;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private StatusEnum status;
 
     private LocalDateTime startDate;
@@ -75,11 +86,11 @@ public class ChallengeEntity {
         this.xpReward = xpReward;
     }
 
-    public String getImgUrl() {
+    public byte[] getImgUrl() {
         return imgUrl;
     }
 
-    public void setImgUrl(String imgUrl) {
+    public void setImgUrl(byte[] imgUrl) {
         this.imgUrl = imgUrl;
     }
 

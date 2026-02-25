@@ -13,7 +13,8 @@ import java.util.UUID;
 @Table(name = "users")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID id;
 
     private String username;
@@ -23,7 +24,10 @@ public class UserEntity {
 
     private String avatarUrl;
     private String bio;
+
+    @Column(columnDefinition = "int default 0")
     private int xp;
+    @Column(columnDefinition = "int default 1")
     private int level;
 
     @CreatedDate
