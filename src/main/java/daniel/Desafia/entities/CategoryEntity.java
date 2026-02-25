@@ -15,12 +15,18 @@ public class CategoryEntity {
     private Long id;
 
     private String name;
-    private String icon;
+    private byte[] icon;
 
     @CreatedDate
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    public CategoryEntity() {}
+
+    public CategoryEntity(String name, byte[] icon, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -38,12 +44,12 @@ public class CategoryEntity {
         this.name = name;
     }
 
-    public String getIcon() {
+    public byte[] getIcon() {
         return icon;
     }
 
     public void setIcon(String icon) {
-        this.icon = icon;
+        this.icon = icon.getBytes();
     }
 
     public LocalDateTime getCreatedAt() {
