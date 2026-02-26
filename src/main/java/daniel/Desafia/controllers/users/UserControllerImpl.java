@@ -1,14 +1,31 @@
 package daniel.Desafia.controllers.users;
 
+import daniel.Desafia.dtos.users.request.CreateRequestUserDTO;
 import daniel.Desafia.dtos.users.request.LoginRequestUserDTO;
+import daniel.Desafia.dtos.users.request.UpdateRequestUserDTO;
 import daniel.Desafia.dtos.users.response.LoginResponseUserDTO;
-import daniel.Desafia.entities.UserEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class UserControllerImpl implements UserController {
-
     @Override
     public ResponseEntity<LoginResponseUserDTO> login(LoginRequestUserDTO data) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Void> register(CreateRequestUserDTO data) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Void> update(UpdateRequestUserDTO data) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Void> delete() {
         return null;
     }
 }
