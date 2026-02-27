@@ -3,6 +3,8 @@ package daniel.Desafia.services.categories;
 import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.repositories.CategoryRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -17,7 +19,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Page<CategoryEntity> pageCategories(int page, int size) {
-        return null;
+        Pageable pageable = PageRequest.of(page, size);
+        return this.repository.findAll(pageable);
     }
 
     @Override

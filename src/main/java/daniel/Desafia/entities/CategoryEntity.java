@@ -15,12 +15,14 @@ public class CategoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String name;
     @Lob
     @Column(columnDefinition = "BLOB")
     private byte[] icon;
 
     @CreatedDate
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;

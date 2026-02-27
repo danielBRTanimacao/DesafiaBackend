@@ -18,7 +18,7 @@ public class ChallengeEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
 
     @Column(nullable = false, length = 150)
@@ -32,7 +32,9 @@ public class ChallengeEntity {
 
     private int xpReward;
 
-    private byte[] imgUrl;
+    @Lob
+    @Column(columnDefinition = "BLOB")
+    private byte[] image;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -87,11 +89,11 @@ public class ChallengeEntity {
     }
 
     public byte[] getImgUrl() {
-        return imgUrl;
+        return image;
     }
 
     public void setImgUrl(byte[] imgUrl) {
-        this.imgUrl = imgUrl;
+        this.image = imgUrl;
     }
 
     public StatusEnum getStatus() {
