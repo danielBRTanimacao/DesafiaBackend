@@ -48,6 +48,8 @@ public class ChallengeEntity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    public ChallengeEntity() {}
+
     public Long getId() {
         return id;
     }

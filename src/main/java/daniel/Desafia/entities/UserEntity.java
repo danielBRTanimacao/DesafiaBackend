@@ -37,6 +37,8 @@ public class UserEntity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    public UserEntity() {}
+
     private boolean isExpired(LocalDateTime actualTime) {
         LocalDateTime expiredTime = this.createdAt.plusMinutes(30);
         return actualTime.isBefore(expiredTime);
