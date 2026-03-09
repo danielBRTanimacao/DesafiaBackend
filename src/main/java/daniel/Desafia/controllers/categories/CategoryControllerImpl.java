@@ -18,4 +18,9 @@ public class CategoryControllerImpl implements CategoryController {
     public ResponseEntity<Page<CategoryEntity>> getAllCategories(int page, int size) {
         return ResponseEntity.ok().body(service.pageCategories(page, size));
     }
+
+    @Override
+    public ResponseEntity<Void> createNewCategory() {
+        return null;
+    }
 }

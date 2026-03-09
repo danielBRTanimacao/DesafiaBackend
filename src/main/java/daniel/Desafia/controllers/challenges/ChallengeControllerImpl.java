@@ -19,4 +19,9 @@ public class ChallengeControllerImpl implements ChallengeController {
     public ResponseEntity<Page<ChallengeEntity>> getAllChallenges(int page, int size) {
         return ResponseEntity.ok().body(service.paginateChallenges(page, size));
     }
+
+    @Override
+    public ResponseEntity<ChallengeEntity> foo() {
+        return ResponseEntity.ok().body(service.foo());
+    }
 }
