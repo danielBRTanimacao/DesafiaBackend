@@ -1,12 +1,10 @@
 package daniel.Desafia.controllers.categories;
 
+import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
 import daniel.Desafia.entities.CategoryEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("api/categories")
 public interface CategoryController {
@@ -17,5 +15,5 @@ public interface CategoryController {
     );
 
     @PostMapping
-    ResponseEntity<Void> createNewCategory();
+    ResponseEntity<Void> createNewCategory(@RequestBody CreateRequestCategoryDTO data);
 }

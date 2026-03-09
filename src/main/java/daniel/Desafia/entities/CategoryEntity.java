@@ -17,6 +17,7 @@ public class CategoryEntity {
 
     @Column(nullable = false, unique = true)
     private String name;
+
     @Lob
     @Column(columnDefinition = "BLOB")
     private byte[] icon;

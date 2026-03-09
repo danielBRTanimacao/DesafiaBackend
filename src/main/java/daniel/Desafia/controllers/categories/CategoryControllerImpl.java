@@ -1,8 +1,10 @@
 package daniel.Desafia.controllers.categories;
 
+import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
 import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.services.categories.CategoryService;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +22,10 @@ public class CategoryControllerImpl implements CategoryController {
     }
 
     @Override
-    public ResponseEntity<Void> createNewCategory() {
-        return null;
+    public ResponseEntity<Void> createNewCategory(CreateRequestCategoryDTO data) {
+        CategoryEntity category = new CategoryEntity(data.title(), data.icon());
+        service.saveCategory(category);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
 }

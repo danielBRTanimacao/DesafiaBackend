@@ -1,6 +1,7 @@
 package daniel.Desafia.dtos.categories.request;
 
 public record CreateRequestCategoryDTO(
-        String title
+        String title,
+        byte[] icon
 ) {
 }
