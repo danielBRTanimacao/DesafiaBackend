@@ -1,5 +1,7 @@
 package daniel.Desafia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import daniel.Desafia.enums.DifficultyEnum;
 import daniel.Desafia.enums.StatusEnum;
 import jakarta.persistence.*;
@@ -8,6 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -17,6 +20,7 @@ public class ChallengeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
@@ -49,6 +53,19 @@ public class ChallengeEntity {
     private LocalDateTime updatedAt;
 
     public ChallengeEntity() {}
+
+    @JsonProperty("category_id")
+    public Long getCategoryId() {
+        return (this.category != null) ? this.category.getId() : null;
+    }
+
+    @JsonProperty("category_id")
+    public void setCategoryId(Long categoryId) {
+        if (this.category == null) {
+            this.category = new CategoryEntity();
+        }
+        this.category.setId(categoryId);
+    }
 
     public Long getId() {
         return id;

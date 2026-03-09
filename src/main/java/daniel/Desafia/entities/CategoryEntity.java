@@ -29,6 +29,10 @@ public class CategoryEntity {
 
     public CategoryEntity() {}
 
+    public CategoryEntity(String name) {
+        this.name = name;
+    }
+
     public CategoryEntity(String name, byte[] icon) {
         this.name = name;
         this.icon = icon;
