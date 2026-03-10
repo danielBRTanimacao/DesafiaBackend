@@ -1,5 +1,6 @@
 package daniel.Desafia.controllers.challenges;
 
+import daniel.Desafia.dtos.challenges.request.CreateRequestChallengeDTO;
 import daniel.Desafia.entities.ChallengeEntity;
 import daniel.Desafia.services.challenges.ChallengeService;
 import org.springframework.data.domain.Page;
@@ -21,7 +22,7 @@ public class ChallengeControllerImpl implements ChallengeController {
     }
 
     @Override
-    public ResponseEntity<ChallengeEntity> foo() {
+    public ResponseEntity<ChallengeEntity> createNewChallenge(CreateRequestChallengeDTO data) {
         return ResponseEntity.ok().body(service.foo());
     }
 }

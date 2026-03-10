@@ -1,12 +1,10 @@
 package daniel.Desafia.controllers.challenges;
 
+import daniel.Desafia.dtos.challenges.request.CreateRequestChallengeDTO;
 import daniel.Desafia.entities.ChallengeEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("api/challenges")
 public interface ChallengeController {
@@ -17,5 +15,5 @@ public interface ChallengeController {
     );
 
     @PostMapping
-    ResponseEntity<ChallengeEntity> foo();
+    ResponseEntity<ChallengeEntity> createNewChallenge(@RequestBody CreateRequestChallengeDTO data);
 }
