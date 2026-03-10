@@ -17,11 +17,9 @@ import java.time.LocalDateTime;
 public class ChallengeServiceImpl implements ChallengeService{
 
     private final ChallengeRepository repository;
-    private final CategoryRepository categoryRepository;
 
-    public ChallengeServiceImpl(ChallengeRepository repository,CategoryRepository categoryRepository) {
+    public ChallengeServiceImpl(ChallengeRepository repository) {
         this.repository = repository;
-        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -31,22 +29,7 @@ public class ChallengeServiceImpl implements ChallengeService{
     }
 
     @Override
-    public ChallengeEntity foo() {
-        CategoryEntity cat = new CategoryEntity();
-        ChallengeEntity challenge = new ChallengeEntity();
-
-        cat.setName("CATEGORIA");
-        challenge.setCategory(cat);
-        challenge.setDescription("teste");
-        challenge.setDifficulty(DifficultyEnum.MEDIUM);
-        challenge.setStartDate(LocalDateTime.now());
-        challenge.setStatus(StatusEnum.ACTIVE);
-        challenge.setTitle("Titulo teste");
-        challenge.setXpReward(1000);
-
-        categoryRepository.save(cat);
-        repository.save(challenge);
-
-        return challenge;
+    public ChallengeEntity saveChallenge(ChallengeEntity entity) {
+        return this.repository.save(entity);
     }
 }

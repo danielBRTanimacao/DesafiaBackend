@@ -5,5 +5,5 @@ import org.springframework.data.domain.Page;
 
 public interface ChallengeService {
     Page<ChallengeEntity> paginateChallenges(int page, int size);
-    ChallengeEntity foo();
+    ChallengeEntity saveChallenge(ChallengeEntity entity);
 }
