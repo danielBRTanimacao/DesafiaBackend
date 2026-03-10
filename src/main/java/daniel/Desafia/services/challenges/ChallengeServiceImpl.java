@@ -1,17 +1,11 @@
 package daniel.Desafia.services.challenges;
 
-import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.entities.ChallengeEntity;
-import daniel.Desafia.enums.DifficultyEnum;
-import daniel.Desafia.enums.StatusEnum;
-import daniel.Desafia.repositories.CategoryRepository;
 import daniel.Desafia.repositories.ChallengeRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 
 @Service
 public class ChallengeServiceImpl implements ChallengeService{
