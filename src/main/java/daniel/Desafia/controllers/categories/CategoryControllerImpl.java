@@ -24,15 +24,14 @@ public class CategoryControllerImpl implements CategoryController {
 
     @Override
     public ResponseEntity<Void> createNewCategory(CreateRequestCategoryDTO data) {
-        CategoryEntity category = new CategoryEntity(data.title(), data.icon());
-        service.saveCategory(category);
+        service.saveCategory(data);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @Override
     public ResponseEntity<Void> updateCategory(UpdateRequestCategoryDTO data) {
         CategoryEntity category = new CategoryEntity(data.title(), data.icon());
-        service.updateCategory(category);
+        service.updateCategory(data);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

@@ -1,5 +1,6 @@
 package daniel.Desafia.services.categories;
 
+import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
 import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.repositories.CategoryRepository;
 import daniel.Desafia.utils.customs.NotFoundException;
@@ -25,7 +26,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void saveCategory(CategoryEntity entity) {
+    public void saveCategory(CreateRequestCategoryDTO data) {
+        CategoryEntity entity = new CategoryEntity(data.title(), data.icon());
         this.repository.save(entity);
     }
 
