@@ -1,6 +1,7 @@
 package daniel.Desafia.services.categories;
 
 import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
+import daniel.Desafia.dtos.categories.request.UpdateRequestCategoryDTO;
 import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.repositories.CategoryRepository;
 import daniel.Desafia.utils.customs.NotFoundException;
@@ -32,12 +33,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void updateCategory(CategoryEntity data) {
-        CategoryEntity category = this.repository.findById(data.getId()).orElseThrow(
+    public void updateCategory(UpdateRequestCategoryDTO data) {
+        CategoryEntity newDataCategory = new CategoryEntity(data.title(), data.icon());
+        CategoryEntity category = this.repository.findById(data.id()).orElseThrow(
                 () -> new NotFoundException("Category not found")
         );
-        category.setName(data.getName());
-        category.setIcon(data.getIcon());
+        category.setName(newDataCategory.getName());
+        category.setIcon(newDataCategory.getIcon());
         this.repository.save(category);
     }
 

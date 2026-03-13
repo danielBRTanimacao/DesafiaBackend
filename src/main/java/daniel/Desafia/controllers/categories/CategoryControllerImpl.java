@@ -30,7 +30,6 @@ public class CategoryControllerImpl implements CategoryController {
 
     @Override
     public ResponseEntity<Void> updateCategory(UpdateRequestCategoryDTO data) {
-        CategoryEntity category = new CategoryEntity(data.title(), data.icon());
         service.updateCategory(data);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
