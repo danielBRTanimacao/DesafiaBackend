@@ -1,5 +1,6 @@
 package daniel.Desafia.services.challenges;
 
+import daniel.Desafia.dtos.challenges.request.CreateRequestChallengeDTO;
 import daniel.Desafia.entities.ChallengeEntity;
 import daniel.Desafia.repositories.ChallengeRepository;
 import org.springframework.data.domain.Page;
@@ -23,7 +24,18 @@ public class ChallengeServiceImpl implements ChallengeService{
     }
 
     @Override
-    public ChallengeEntity saveChallenge(ChallengeEntity entity) {
-        return this.repository.save(entity);
+    public ChallengeEntity saveChallenge(CreateRequestChallengeDTO data) {
+        ChallengeEntity challenge = new ChallengeEntity();
+
+        challenge.setTitle(data.title());
+        challenge.setStatus(data.status());
+        challenge.setXpReward(data.xpReward());
+        challenge.setDescription(data.description());
+        challenge.setDifficulty(data.difficulty());
+        challenge.setCategoryId(data.category_id());
+        challenge.setStartDate(data.startDate());
+        challenge.setEndDate(data.endDate());
+        challenge.setImgUrl(data.image());
+        return this.repository.save(challenge);
     }
 }

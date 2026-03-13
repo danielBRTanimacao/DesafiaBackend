@@ -1,7 +1,6 @@
 package daniel.Desafia.controllers.categories;
 
-import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
-import daniel.Desafia.dtos.categories.request.UpdateRequestCategoryDTO;
+import daniel.Desafia.dtos.categories.request.*;
 import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.services.categories.CategoryService;
 import org.springframework.data.domain.Page;

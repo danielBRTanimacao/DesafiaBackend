@@ -23,18 +23,6 @@ public class ChallengeControllerImpl implements ChallengeController {
 
     @Override
     public ResponseEntity<ChallengeEntity> createNewChallenge(CreateRequestChallengeDTO data) {
-        ChallengeEntity challenge = new ChallengeEntity();
-
-        challenge.setTitle(data.title());
-        challenge.setStatus(data.status());
-        challenge.setXpReward(data.xpReward());
-        challenge.setDescription(data.description());
-        challenge.setDifficulty(data.difficulty());
-        challenge.setCategoryId(data.category_id());
-        challenge.setStartDate(data.startDate());
-        challenge.setEndDate(data.endDate());
-        challenge.setImgUrl(data.image());
-
-        return ResponseEntity.ok().body(service.saveChallenge(challenge));
+        return ResponseEntity.ok().body(service.saveChallenge(data));
     }
 }
