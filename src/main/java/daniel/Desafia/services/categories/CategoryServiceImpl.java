@@ -1,7 +1,6 @@
 package daniel.Desafia.services.categories;
 
-import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
-import daniel.Desafia.dtos.categories.request.UpdateRequestCategoryDTO;
+import daniel.Desafia.dtos.categories.request.*;
 import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.repositories.CategoryRepository;
 import daniel.Desafia.utils.customs.NotFoundException;
