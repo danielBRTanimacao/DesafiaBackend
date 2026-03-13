@@ -16,4 +16,7 @@ public interface ChallengeController {
 
     @PostMapping
     ResponseEntity<ChallengeEntity> createNewChallenge(@RequestBody CreateRequestChallengeDTO data);
+
+    @PutMapping
+    ResponseEntity<Void> updateChallenge(@RequestBody CreateRequestChallengeDTO data);
 }
