@@ -6,6 +6,7 @@ import daniel.Desafia.enums.StatusEnum;
 import java.time.LocalDateTime;
 
 public record UpdateRequestChallengeDTO(
+        Long id,
         Long category_id,
         String title,
         String description,

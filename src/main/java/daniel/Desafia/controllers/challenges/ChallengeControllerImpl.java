@@ -5,6 +5,7 @@ import daniel.Desafia.dtos.challenges.request.UpdateRequestChallengeDTO;
 import daniel.Desafia.entities.ChallengeEntity;
 import daniel.Desafia.services.challenges.ChallengeService;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +30,7 @@ public class ChallengeControllerImpl implements ChallengeController {
 
     @Override
     public ResponseEntity<Void> updateChallenge(UpdateRequestChallengeDTO data) {
-        return null;
+        service.updateChallenge(data);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
