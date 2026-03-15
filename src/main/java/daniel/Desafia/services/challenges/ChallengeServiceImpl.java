@@ -1,7 +1,6 @@
 package daniel.Desafia.services.challenges;
 
-import daniel.Desafia.dtos.challenges.request.CreateRequestChallengeDTO;
-import daniel.Desafia.dtos.challenges.request.UpdateRequestChallengeDTO;
+import daniel.Desafia.dtos.challenges.request.*;
 import daniel.Desafia.entities.ChallengeEntity;
 import daniel.Desafia.repositories.ChallengeRepository;
 import daniel.Desafia.utils.customs.NotFoundException;
