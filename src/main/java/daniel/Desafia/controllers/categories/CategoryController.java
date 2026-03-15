@@ -2,6 +2,7 @@ package daniel.Desafia.controllers.categories;
 
 import daniel.Desafia.dtos.categories.request.*;
 import daniel.Desafia.entities.CategoryEntity;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public interface CategoryController {
     );
 
     @PostMapping
-    ResponseEntity<Void> createNewCategory(@RequestBody CreateRequestCategoryDTO data);
+    ResponseEntity<Void> createNewCategory(@Valid @RequestBody CreateRequestCategoryDTO data);
 
     @PutMapping
     ResponseEntity<Void> updateCategory(@RequestBody UpdateRequestCategoryDTO data);
