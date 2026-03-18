@@ -33,12 +33,15 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void updateCategory(UpdateRequestCategoryDTO data) {
-        CategoryEntity newDataCategory = new CategoryEntity(data.title(), data.icon());
         CategoryEntity category = this.repository.findById(data.id()).orElseThrow(
                 () -> new NotFoundException("Category not found")
         );
-        category.setName(newDataCategory.getName());
-        category.setIcon(newDataCategory.getIcon());
+        if (data.title() != null && !data.title().isBlank()) {
+            category.setName(data.title());
+        }
+        if (data.icon() != null) {
+            category.setIcon(data.icon());
+        }
         this.repository.save(category);
     }
 

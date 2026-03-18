@@ -28,7 +28,7 @@ public class CategoryControllerImpl implements CategoryController {
     }
 
     @Override
-    public ResponseEntity<Void> updateCategory(UpdateRequestCategoryDTO data) {
+    public ResponseEntity<Void>updateCategory(UpdateRequestCategoryDTO data) {
         service.updateCategory(data);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
