@@ -47,7 +47,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void delCategory(Long id) {
-        CategoryEntity category = this.repository.findById(id).orElseThrow(()-> new NotFoundException("Category not found"));
+        CategoryEntity category = this.repository.findById(id).orElseThrow(
+                ()-> new NotFoundException("Category not found")
+        );
         this.repository.delete(category);
     }
 }
