@@ -24,7 +24,7 @@ public class UserEntity {
     private String mailToken;
     private String password;
 
-    private String avatarUrl;
+    private byte[] avatar;
     private String bio;
 
     @Column(columnDefinition = "int default 0")
@@ -76,12 +76,12 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public byte[] getAvatar() {
+        return avatar;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
     }
 
     public String getBio() {
