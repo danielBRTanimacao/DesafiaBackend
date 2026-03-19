@@ -24,6 +24,8 @@ public class UserEntity {
     private String mailToken;
     private String password;
 
+    @Lob
+    @Column(columnDefinition = "BLOB")
     private byte[] avatar;
     private String bio;
 
