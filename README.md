@@ -35,25 +35,16 @@ Plaintext
 Pré-requisitos
 
     Docker e Docker Compose instalados.
-
     (Opcional) Java 17 e Maven se desejar rodar fora do container.
 
 Passo a Passo
 
-    Clonar o repositório:
-    Bash
+    _Clonar o repositório:
+    git clone https://github.com/danielBRTanimacao/DesafiaBackend.git
+    cd DesafiaBackend
 
-    git clone https://github.com/seu-usuario/desafia.git
-    cd desafia
-
-    Subir o ambiente com Docker:
-    O comando abaixo inicia o banco de dados PostgreSQL e a aplicação Java simultaneamente:
-    Bash
-
+    _Subir o ambiente com Docker:
     docker-compose up -d
-
-    Acessar a aplicação:
-    A API estará disponível em http://localhost:8080.
 
 ### 🗄️ Banco de Dados
 
@@ -69,19 +60,13 @@ O banco de dados é inicializado automaticamente via Docker. Se precisar conecta
 
     Database: desafia_db
 
-### 📑 API Endpoints (Exemplos)
-Método	Endpoint	Descrição
-GET	/api/challenges	Lista todos os desafios disponíveis.
-POST	/api/users/{id}/complete	Registra a conclusão de um desafio e atribui XP.
-GET	/api/ranking	Retorna o leaderboard global.
-🧪 Testes
+### 🧪 Testes
 
 Para rodar os testes unitários e de integração:
-Bash
 
-mvn test
+    mvn test
 
-🤝 Contribuição
+### 🤝 Contribuição
 
     Faça um Fork do projeto.
 
@@ -97,4 +82,4 @@ mvn test
 
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-Desenvolvido com ☕ por [Seu Nome]
+Desenvolvido com ☕ por DanielBRTanimacao.
