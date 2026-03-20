@@ -53,6 +53,15 @@ public class ChallengeEntity {
 
     public ChallengeEntity() {}
 
+    public ChallengeEntity(Long category_id, String title, String description, DifficultyEnum difficulty, int xpReward, StatusEnum status) {
+        this.setCategoryId(category_id);
+        this.title = title;
+        this.description = description;
+        this.difficulty = difficulty;
+        this.xpReward = xpReward;
+        this.status = status;
+    }
+
     @JsonProperty("category_id")
     public Long getCategoryId() {
         return (this.category != null) ? this.category.getId() : null;
