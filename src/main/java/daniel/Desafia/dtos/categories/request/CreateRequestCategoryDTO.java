@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 
 public record CreateRequestCategoryDTO(
         @NotBlank
-        String title,
+        String name,
         byte[] icon
 ) {
 }

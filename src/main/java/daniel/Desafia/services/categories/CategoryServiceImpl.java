@@ -3,6 +3,7 @@ package daniel.Desafia.services.categories;
 import daniel.Desafia.dtos.categories.request.*;
 import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.repositories.CategoryRepository;
+import daniel.Desafia.utils.customs.AlreadyExistException;
 import daniel.Desafia.utils.customs.NotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,6 +29,9 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void saveCategory(CreateRequestCategoryDTO data) {
         CategoryEntity entity = new CategoryEntity(data.title(), data.icon());
+        if (this.repository.findByNameExists(data.title())) {
+            throw new AlreadyExistException("Category with name" + data.title() + " already exist");
+        }
         this.repository.save(entity);
     }
 
