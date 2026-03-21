@@ -28,10 +28,10 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void saveCategory(CreateRequestCategoryDTO data) {
-        CategoryEntity entity = new CategoryEntity(data.title(), data.icon());
-        if (this.repository.findByNameExists(data.title())) {
-            throw new AlreadyExistException("Category with name" + data.title() + " already exist");
+        if (this.repository.findByNameExists(data.name())) {
+            throw new AlreadyExistException("Category with name" + data.name() + " already exist");
         }
+        CategoryEntity entity = new CategoryEntity(data.name(), data.icon());
         this.repository.save(entity);
     }
 
@@ -40,8 +40,8 @@ public class CategoryServiceImpl implements CategoryService {
         CategoryEntity category = this.repository.findById(data.id()).orElseThrow(
                 () -> new NotFoundException("Category not found")
         );
-        if (data.title() != null && !data.title().isBlank()) {
-            category.setName(data.title());
+        if (data.name() != null && !data.name().isBlank()) {
+            category.setName(data.name());
         }
         if (data.icon() != null) {
             category.setIcon(data.icon());
