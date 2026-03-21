@@ -15,7 +15,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
-public class CategoryRepositoryTest {
+public class CategoryServiceTest {
 
     @InjectMocks
     private CategoryServiceImpl service;
@@ -36,6 +36,8 @@ public class CategoryRepositoryTest {
 
     @Test
     void shouldThrowAlreadyExistExceptionWhenSameNameCategoryCreated() {
+        String repeatName = "Gym";
+
 
     }
 }

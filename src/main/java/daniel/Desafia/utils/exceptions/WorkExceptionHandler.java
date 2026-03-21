@@ -1,5 +1,6 @@
 package daniel.Desafia.utils.exceptions;
 
+import daniel.Desafia.utils.customs.AlreadyExistException;
 import daniel.Desafia.utils.customs.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,13 @@ public class WorkExceptionHandler {
         );
 
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(AlreadyExistException.class)
+    public ResponseEntity<Map<String, String>> alreadyExist(AlreadyExistException cause) {
+        Map<String, String> error = new HashMap<>();
+        error.put("error", cause.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(NotFoundException.class)
