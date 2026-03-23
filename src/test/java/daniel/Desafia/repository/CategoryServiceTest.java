@@ -1,6 +1,7 @@
 package daniel.Desafia.repository;
 
 import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
+import daniel.Desafia.dtos.categories.request.UpdateRequestCategoryDTO;
 import daniel.Desafia.repositories.CategoryRepository;
 import daniel.Desafia.services.categories.CategoryServiceImpl;
 import daniel.Desafia.utils.customs.AlreadyExistException;
@@ -49,5 +50,15 @@ public class CategoryServiceTest {
         service.saveCategory(dto);
 
         assertThrows(AlreadyExistException.class, () -> service.saveCategory(dto));
+    }
+
+    @Test
+    void shouldThrowNotFoundExceptionWhenUpdateNonExistingCategory() {
+        Long fakeId = 999L;
+
+        UpdateRequestCategoryDTO categoryDTO = new UpdateRequestCategoryDTO(fakeId, "Name", new byte[5]);
+
+        when(repository.findById(fakeId)).thenReturn(Optional.empty());
+        assertThrows(NotFoundException.class, () -> service.updateCategory(categoryDTO));
     }
 }
