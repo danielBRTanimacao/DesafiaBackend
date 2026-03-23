@@ -74,4 +74,12 @@ public class ChallengeServiceImpl implements ChallengeService{
 
         this.repository.save(challenge);
     }
+
+    @Override
+    public void delChallenge(Long id) {
+        ChallengeEntity challenge = repository.findById(id).orElseThrow(
+                () -> new NotFoundException("Challenge not found")
+        );
+        repository.delete(challenge);
+    }
 }
