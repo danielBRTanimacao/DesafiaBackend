@@ -1,7 +1,6 @@
 package daniel.Desafia.repository;
 
 import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
-import daniel.Desafia.entities.CategoryEntity;
 import daniel.Desafia.repositories.CategoryRepository;
 import daniel.Desafia.services.categories.CategoryServiceImpl;
 import daniel.Desafia.utils.customs.AlreadyExistException;
