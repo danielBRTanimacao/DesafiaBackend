@@ -1,8 +1,6 @@
 package daniel.Desafia.repository;
 
-import daniel.Desafia.repositories.CategoryRepository;
 import daniel.Desafia.repositories.ChallengeRepository;
-import daniel.Desafia.services.categories.CategoryServiceImpl;
 import daniel.Desafia.services.challenges.ChallengeServiceImpl;
 import daniel.Desafia.utils.customs.NotFoundException;
 import org.junit.jupiter.api.Test;
