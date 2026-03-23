@@ -9,4 +9,5 @@ public interface ChallengeService {
     Page<ChallengeEntity> paginateChallenges(int page, int size);
     ChallengeEntity saveChallenge(CreateRequestChallengeDTO data);
     void updateChallenge(UpdateRequestChallengeDTO data);
+    void delChallenge(Long id);
 }
