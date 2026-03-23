@@ -1,7 +1,6 @@
 package daniel.Desafia.repository;
 
-import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
-import daniel.Desafia.dtos.categories.request.UpdateRequestCategoryDTO;
+import daniel.Desafia.dtos.categories.request.*;
 import daniel.Desafia.repositories.CategoryRepository;
 import daniel.Desafia.services.categories.CategoryServiceImpl;
 import daniel.Desafia.utils.customs.AlreadyExistException;
@@ -27,15 +26,15 @@ public class CategoryServiceTest {
     @Mock
     private CategoryRepository repository;
 
+    private final Long FAKEID = 9999999L;
+
     @Test
     void shouldThrowNotFoundExceptionWhenDeletingNonExistingCategory() {
-        Long id = 6L;
+        when(repository.findById(FAKEID)).thenReturn(Optional.empty());
+        assertThrows(NotFoundException.class, () -> service.delCategory(FAKEID));
 
-        when(repository.findById(id)).thenReturn(Optional.empty());
-        assertThrows(NotFoundException.class, () -> service.delCategory(id));
-
-        Mockito.verify(repository).findById(id);
-        Mockito.verify(repository, Mockito.never()).deleteById(id);
+        Mockito.verify(repository).findById(FAKEID);
+        Mockito.verify(repository, Mockito.never()).deleteById(FAKEID);
     }
 
     @Test
@@ -54,11 +53,9 @@ public class CategoryServiceTest {
 
     @Test
     void shouldThrowNotFoundExceptionWhenUpdateNonExistingCategory() {
-        Long fakeId = 999L;
+        UpdateRequestCategoryDTO categoryDTO = new UpdateRequestCategoryDTO(FAKEID, "Name", new byte[5]);
 
-        UpdateRequestCategoryDTO categoryDTO = new UpdateRequestCategoryDTO(fakeId, "Name", new byte[5]);
-
-        when(repository.findById(fakeId)).thenReturn(Optional.empty());
+        when(repository.findById(FAKEID)).thenReturn(Optional.empty());
         assertThrows(NotFoundException.class, () -> service.updateCategory(categoryDTO));
     }
 }
