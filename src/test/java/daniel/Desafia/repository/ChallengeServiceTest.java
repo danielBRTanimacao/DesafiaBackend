@@ -1,6 +1,5 @@
 package daniel.Desafia.repository;
 
-import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
 import daniel.Desafia.dtos.challenges.request.CreateRequestChallengeDTO;
 import daniel.Desafia.enums.DifficultyEnum;
 import daniel.Desafia.enums.StatusEnum;
