@@ -54,6 +54,6 @@ public class ChallengeServiceTest {
 
         service.saveChallenge(dto);
 
-        assertThrows(AlreadyExistException.class, () -> service.saveCategory(dto));
+        assertThrows(AlreadyExistException.class, () -> service.saveChallenge(dto));
     }
 }
