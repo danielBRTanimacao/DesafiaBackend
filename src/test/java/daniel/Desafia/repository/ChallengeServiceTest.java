@@ -48,11 +48,11 @@ public class ChallengeServiceTest {
                 LocalDateTime.now()
         );
 
-        when(repository.findByNameExists(repeatName))
+        when(repository.findByTitleExists(repeatName))
                 .thenReturn(false)
                 .thenReturn(true);
 
-        service.saveCategory(dto);
+        service.saveChallenge(dto);
 
         assertThrows(AlreadyExistException.class, () -> service.saveCategory(dto));
     }

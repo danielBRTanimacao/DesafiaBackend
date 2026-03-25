@@ -4,5 +4,5 @@ import daniel.Desafia.entities.ChallengeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ChallengeRepository extends JpaRepository<ChallengeEntity, Long> {
-    findByTitle
+    boolean findByTitleExists(String title);
 }
