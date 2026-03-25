@@ -26,15 +26,15 @@ public class CategoryServiceTest {
     @Mock
     private CategoryRepository repository;
 
-    private final Long FAKEID = 9999999L;
+    private final Long fakeId = 9999999L;
 
     @Test
     void shouldThrowNotFoundExceptionWhenDeletingNonExistingCategory() {
-        when(repository.findById(FAKEID)).thenReturn(Optional.empty());
-        assertThrows(NotFoundException.class, () -> service.delCategory(FAKEID));
+        when(repository.findById(fakeId)).thenReturn(Optional.empty());
+        assertThrows(NotFoundException.class, () -> service.delCategory(fakeId));
 
-        Mockito.verify(repository).findById(FAKEID);
-        Mockito.verify(repository, Mockito.never()).deleteById(FAKEID);
+        Mockito.verify(repository).findById(fakeId);
+        Mockito.verify(repository, Mockito.never()).deleteById(fakeId);
     }
 
     @Test
@@ -53,9 +53,9 @@ public class CategoryServiceTest {
 
     @Test
     void shouldThrowNotFoundExceptionWhenUpdateNonExistingCategory() {
-        UpdateRequestCategoryDTO categoryDTO = new UpdateRequestCategoryDTO(FAKEID, "Name", new byte[5]);
+        UpdateRequestCategoryDTO categoryDTO = new UpdateRequestCategoryDTO(fakeId, "Name", new byte[5]);
 
-        when(repository.findById(FAKEID)).thenReturn(Optional.empty());
+        when(repository.findById(fakeId)).thenReturn(Optional.empty());
         assertThrows(NotFoundException.class, () -> service.updateCategory(categoryDTO));
     }
 }
