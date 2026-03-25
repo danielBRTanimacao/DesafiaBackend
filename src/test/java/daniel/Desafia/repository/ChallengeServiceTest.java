@@ -41,7 +41,7 @@ public class ChallengeServiceTest {
     }
 
     @Test
-    void shouldThrowAlreadyExistExceptionWhenSameNameChallenge() {
+    void shouldThrowAlreadyExistExceptionWhenSameTitleChallenge() {
         String repeatName = "Challenge";
         CreateRequestChallengeDTO dto = new CreateRequestChallengeDTO(1L, repeatName, "description",
                 DifficultyEnum.EASY, 10, new byte[5], StatusEnum.ACTIVE, LocalDateTime.now(),

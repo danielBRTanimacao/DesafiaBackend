@@ -3,6 +3,7 @@ package daniel.Desafia.services.challenges;
 import daniel.Desafia.dtos.challenges.request.*;
 import daniel.Desafia.entities.ChallengeEntity;
 import daniel.Desafia.repositories.ChallengeRepository;
+import daniel.Desafia.utils.customs.AlreadyExistException;
 import daniel.Desafia.utils.customs.NotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
@@ -27,6 +28,9 @@ public class ChallengeServiceImpl implements ChallengeService{
 
     @Override
     public ChallengeEntity saveChallenge(CreateRequestChallengeDTO data) {
+        if (this.repository.findByTitleExists(data.title())) {
+            throw new AlreadyExistException("Challenge with name" + data.title() + " already exist");
+        }
         ChallengeEntity challenge = new ChallengeEntity();
 
         challenge.setTitle(data.title());

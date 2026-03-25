@@ -24,7 +24,7 @@ public class ChallengeEntity {
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
 
-    @Column(nullable = false, length = 150)
+    @Column(nullable = false, length = 150, unique = true)
     private String title;
     @Column(columnDefinition = "TEXT")
     private String description;
