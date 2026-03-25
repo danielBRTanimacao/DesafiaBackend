@@ -1,7 +1,12 @@
 package daniel.Desafia.repository;
 
+import daniel.Desafia.dtos.categories.request.CreateRequestCategoryDTO;
+import daniel.Desafia.dtos.challenges.request.CreateRequestChallengeDTO;
+import daniel.Desafia.enums.DifficultyEnum;
+import daniel.Desafia.enums.StatusEnum;
 import daniel.Desafia.repositories.ChallengeRepository;
 import daniel.Desafia.services.challenges.ChallengeServiceImpl;
+import daniel.Desafia.utils.customs.AlreadyExistException;
 import daniel.Desafia.utils.customs.NotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -32,5 +38,22 @@ public class ChallengeServiceTest {
 
         Mockito.verify(repository).findById(fakeId);
         Mockito.verify(repository, Mockito.never()).deleteById(fakeId);
+    }
+
+    @Test
+    void shouldThrowAlreadyExistExceptionWhenSameNameChallenge() {
+        String repeatName = "Challenge";
+        CreateRequestChallengeDTO dto = new CreateRequestChallengeDTO(1L, repeatName, "description",
+                DifficultyEnum.EASY, 10, new byte[5], StatusEnum.ACTIVE, LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        when(repository.findByNameExists(repeatName))
+                .thenReturn(false)
+                .thenReturn(true);
+
+        service.saveCategory(dto);
+
+        assertThrows(AlreadyExistException.class, () -> service.saveCategory(dto));
     }
 }
