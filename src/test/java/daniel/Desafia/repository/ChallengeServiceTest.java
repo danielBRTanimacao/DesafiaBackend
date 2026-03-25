@@ -23,14 +23,14 @@ public class ChallengeServiceTest {
     @Mock
     private ChallengeRepository repository;
 
-    private final Long FAKEID = 9999999L;
+    private final Long fakeId = 9999999L;
 
     @Test
     void shouldThrowNotFoundExceptionWhenDeletingNonExistingChallenge() {
-        when(repository.findById(FAKEID)).thenReturn(Optional.empty());
-        assertThrows(NotFoundException.class, () -> service.delChallenge(FAKEID));
+        when(repository.findById(fakeId)).thenReturn(Optional.empty());
+        assertThrows(NotFoundException.class, () -> service.delChallenge(fakeId));
 
-        Mockito.verify(repository).findById(FAKEID);
-        Mockito.verify(repository, Mockito.never()).deleteById(FAKEID);
+        Mockito.verify(repository).findById(fakeId);
+        Mockito.verify(repository, Mockito.never()).deleteById(fakeId);
     }
 }
