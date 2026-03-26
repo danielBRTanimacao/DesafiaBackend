@@ -39,11 +39,18 @@ public class UserEntity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
-    public UserEntity(String username, String email, String mailToken, String password) {
+    public UserEntity(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+
+    public UserEntity(String username, String email, String mailToken, String password, byte[] avatar) {
         this.username = username;
         this.email = email;
         this.mailToken = mailToken;
         this.password = password;
+        this.avatar = avatar;
     }
 
     public UserEntity() {}
