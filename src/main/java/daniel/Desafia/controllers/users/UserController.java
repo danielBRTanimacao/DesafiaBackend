@@ -5,10 +5,9 @@ import daniel.Desafia.dtos.users.request.LoginRequestUserDTO;
 import daniel.Desafia.dtos.users.request.UpdateRequestUserDTO;
 import daniel.Desafia.dtos.users.response.LoginResponseUserDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RequestMapping("api/users")
 public interface UserController {
@@ -21,6 +20,6 @@ public interface UserController {
     @PutMapping
     ResponseEntity<Void> update(UpdateRequestUserDTO data);
 
-    @DeleteMapping
-    ResponseEntity<Void> delete();
+    @DeleteMapping("/{id}")
+    ResponseEntity<Void> delete(@PathVariable UUID id);
 }

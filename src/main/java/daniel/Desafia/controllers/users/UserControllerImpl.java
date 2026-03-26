@@ -7,6 +7,8 @@ import daniel.Desafia.dtos.users.response.LoginResponseUserDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 public class UserControllerImpl implements UserController {
     @Override
@@ -25,7 +27,9 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
-    public ResponseEntity<Void> delete() {
+    public ResponseEntity<Void> delete(UUID id) {
         return null;
     }
+
+
 }
