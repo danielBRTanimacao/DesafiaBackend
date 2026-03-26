@@ -39,6 +39,13 @@ public class UserEntity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    public UserEntity(String username, String email, String mailToken, String password) {
+        this.username = username;
+        this.email = email;
+        this.mailToken = mailToken;
+        this.password = password;
+    }
+
     public UserEntity() {}
 
     private boolean isExpired(LocalDateTime actualTime) {
