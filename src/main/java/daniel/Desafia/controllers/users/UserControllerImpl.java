@@ -21,7 +21,7 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public ResponseEntity<LoginResponseUserDTO> login(LoginRequestUserDTO data) {
-        return null;
+        return ResponseEntity.ok().body(service.login(data));
     }
 
     @Override
