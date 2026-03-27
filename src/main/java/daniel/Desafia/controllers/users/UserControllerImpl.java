@@ -15,8 +15,8 @@ public class UserControllerImpl implements UserController {
 
     private final UserService service;
 
-    UserControllerImpl()  {
-        this.service
+    public UserControllerImpl(UserService service)  {
+        this.service = service;
     }
 
     @Override
