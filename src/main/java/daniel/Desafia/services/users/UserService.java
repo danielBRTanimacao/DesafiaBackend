@@ -8,5 +8,5 @@ public interface UserService {
     LoginResponseUserDTO login(LoginRequestUserDTO data);
     void createUser(CreateRequestUserDTO data);
     void updateUser();
-
+    void deleteUser();
 }
