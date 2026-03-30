@@ -9,7 +9,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "participants")
+@Table(
+        name = "participants",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "challenge_id"})
+)
 public class ParticipantsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
