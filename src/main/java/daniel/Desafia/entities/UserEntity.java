@@ -35,6 +35,7 @@ public class UserEntity {
     private int level;
 
     @CreatedDate
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;

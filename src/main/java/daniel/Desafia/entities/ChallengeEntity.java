@@ -47,6 +47,7 @@ public class ChallengeEntity {
     private LocalDateTime endDate;
 
     @CreatedDate
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;
