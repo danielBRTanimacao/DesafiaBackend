@@ -115,11 +115,11 @@ public class ChallengeEntity {
         this.xpReward = xpReward;
     }
 
-    public byte[] getImgUrl() {
+    public byte[] getImg() {
         return image;
     }
 
-    public void setImgUrl(byte[] imgUrl) {
+    public void setImg(byte[] imgUrl) {
         this.image = imgUrl;
     }
 

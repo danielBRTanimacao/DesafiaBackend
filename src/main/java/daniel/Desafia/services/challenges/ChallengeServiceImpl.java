@@ -41,7 +41,7 @@ public class ChallengeServiceImpl implements ChallengeService{
         challenge.setCategoryId(data.category_id());
         challenge.setStartDate(data.startDate());
         challenge.setEndDate(data.endDate());
-        challenge.setImgUrl(data.image());
+        challenge.setImg(data.image());
         return this.repository.save(challenge);
     }
 
@@ -73,7 +73,7 @@ public class ChallengeServiceImpl implements ChallengeService{
             challenge.setCategoryId(data.category_id());
         }
         if (data.image() != null) {
-            challenge.setImgUrl(data.image());
+            challenge.setImg(data.image());
         }
 
         this.repository.save(challenge);
