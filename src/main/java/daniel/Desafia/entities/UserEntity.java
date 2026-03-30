@@ -58,7 +58,7 @@ public class UserEntity {
 
     private boolean isExpired(LocalDateTime actualTime) {
         LocalDateTime expiredTime = this.createdAt.plusMinutes(30);
-        return actualTime.isBefore(expiredTime);
+        return actualTime.isAfter(expiredTime);
     }
 
     public String getUsername() {
