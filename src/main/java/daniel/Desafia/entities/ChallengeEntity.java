@@ -25,6 +25,7 @@ public class ChallengeEntity {
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "challenge")
     private List<ParticipantsEntity> participants;
 
@@ -120,11 +121,11 @@ public class ChallengeEntity {
         this.xpReward = xpReward;
     }
 
-    public byte[] getImg() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImg(byte[] imgUrl) {
+    public void setImage(byte[] imgUrl) {
         this.image = imgUrl;
     }
 

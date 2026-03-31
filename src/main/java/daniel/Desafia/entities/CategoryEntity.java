@@ -1,5 +1,6 @@
 package daniel.Desafia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -17,7 +18,7 @@ public class CategoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<ChallengeEntity> challenges;
 
