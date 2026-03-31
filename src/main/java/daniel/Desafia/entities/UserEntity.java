@@ -36,10 +36,8 @@ public class UserEntity {
     private byte[] avatar;
     private String bio;
 
-    @Column(columnDefinition = "int default 0")
-    private int xp;
-    @Column(columnDefinition = "int default 1")
-    private int level;
+    private int xp = 0;
+    private int level = 1;
 
     @CreatedDate
     @Column(updatable = false)
