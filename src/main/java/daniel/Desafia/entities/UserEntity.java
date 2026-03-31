@@ -45,11 +45,12 @@ public class UserEntity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    public UserEntity() {}
+
     public UserEntity(String username, String password) {
         this.username = username;
         this.password = password;
     }
-
 
     public UserEntity(String username, String email, String mailToken, String password, byte[] avatar) {
         this.username = username;
@@ -58,8 +59,6 @@ public class UserEntity {
         this.password = password;
         this.avatar = avatar;
     }
-
-    public UserEntity() {}
 
     private boolean isExpired(LocalDateTime actualTime) {
         LocalDateTime expiredTime = this.createdAt.plusMinutes(30);
