@@ -1,5 +1,6 @@
 package daniel.Desafia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -18,6 +19,7 @@ public class UserEntity {
     @Column(columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID id;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<ParticipantsEntity> participations;
 
@@ -26,6 +28,7 @@ public class UserEntity {
     @Column(unique = true, nullable = false)
     private String email;
     private String mailToken;
+    @JsonIgnore
     private String password;
 
     @Lob

@@ -1,5 +1,6 @@
 package daniel.Desafia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import daniel.Desafia.enums.StatusEnum;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -18,11 +19,13 @@ public class ParticipantsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "challenge_id", nullable = false)
     private ChallengeEntity challenge;
 
