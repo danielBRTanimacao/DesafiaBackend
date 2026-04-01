@@ -1,6 +1,7 @@
 package daniel.Desafia.dtos.users.request;
 
 public record UpdateRequestUserDTO(
-        String username
+        String username,
+        String email
 ) {
 }
