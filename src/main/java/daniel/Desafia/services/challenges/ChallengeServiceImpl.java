@@ -41,7 +41,7 @@ public class ChallengeServiceImpl implements ChallengeService{
         challenge.setCategoryId(data.category_id());
         challenge.setStartDate(data.startDate());
         challenge.setEndDate(data.endDate());
-        challenge.setImg(data.image());
+        challenge.setImage(data.image());
         return this.repository.save(challenge);
     }
 
