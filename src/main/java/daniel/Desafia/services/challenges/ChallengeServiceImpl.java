@@ -73,7 +73,7 @@ public class ChallengeServiceImpl implements ChallengeService{
             challenge.setCategoryId(data.category_id());
         }
         if (data.image() != null) {
-            challenge.setImg(data.image());
+            challenge.setImage(data.image());
         }
 
         this.repository.save(challenge);
